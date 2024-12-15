@@ -8,6 +8,6 @@ import androidx.room.RoomDatabase
     exportSchema = false,
     version = 1
 )
-abstract class RadioStationDatabase : RoomDatabase() {
+abstract class RadioJuicerDatabase : RoomDatabase() {
     abstract fun favouriteRadioStationDao(): FavouriteRadioStationDao
 }
