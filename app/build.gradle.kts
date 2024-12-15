@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.airsyad.radiojuicer"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.airsyad.radiojuicer"
@@ -49,7 +49,12 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+    // for consuming radio radio-browser.info API
+    implementation (libs.radiobrowser.android)
+
     testImplementation(libs.junit)
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
