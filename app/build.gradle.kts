@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId = "com.airsyad.radiojuicer"
-        minSdk = 24
+        minSdk = 27
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -57,12 +57,13 @@ dependencies {
     implementation (libs.radiobrowser.android)
     // Room
     implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.junit.ktx)
+    implementation(libs.androidx.runner)
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
     // Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
-    
 
     testImplementation(libs.junit)
 
@@ -70,6 +71,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
+
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
