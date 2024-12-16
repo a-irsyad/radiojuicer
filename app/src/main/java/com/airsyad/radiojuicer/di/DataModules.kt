@@ -2,7 +2,7 @@ package com.airsyad.radiojuicer.di
 
 import android.content.Context
 import androidx.room.Room
-import com.airsyad.radiojuicer.data.local.FavouriteRadioStationDao
+import com.airsyad.radiojuicer.data.local.FavouriteStationDao
 import com.airsyad.radiojuicer.data.local.RadioJuicerDatabase
 import dagger.Module
 import dagger.Provides
@@ -26,7 +26,7 @@ object DatabaseModules {
     }
 
     @Provides
-    fun provideFavouriteStationDao(radioJuicerDatabase: RadioJuicerDatabase): FavouriteRadioStationDao{
+    fun provideFavouriteStationDao(radioJuicerDatabase: RadioJuicerDatabase): FavouriteStationDao{
         return radioJuicerDatabase.favouriteRadioStationDao()
     }
 }

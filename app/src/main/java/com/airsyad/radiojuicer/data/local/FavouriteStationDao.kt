@@ -6,12 +6,12 @@ import androidx.room.Upsert
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface FavouriteRadioStationDao {
+interface FavouriteStationDao {
     @Query("SELECT * FROM favourite_radio_station")
-    fun getAll(): Flow<List<FavouriteRadioStation>>
+    fun getAll(): Flow<List<FavouriteStation>>
 
     @Upsert
-    fun upsert(favouriteRadioStation: FavouriteRadioStation)
+    fun upsert(favouriteStation: FavouriteStation)
 
     @Query("DELETE FROM favourite_radio_station")
     fun deleteAll()

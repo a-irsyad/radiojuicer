@@ -4,10 +4,10 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [FavouriteRadioStation::class],
+    entities = [FavouriteStation::class],
     exportSchema = false,
     version = 1
 )
 abstract class RadioJuicerDatabase : RoomDatabase() {
-    abstract fun favouriteRadioStationDao(): FavouriteRadioStationDao
+    abstract fun favouriteRadioStationDao(): FavouriteStationDao
 }
