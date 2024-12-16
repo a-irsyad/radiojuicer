@@ -14,12 +14,12 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 @SmallTest
-class FavouriteRadioStationDaoTest {
+class FavouriteStationDaoTest {
     private lateinit var database: RadioJuicerDatabase
-    private lateinit var dao: FavouriteRadioStationDao
+    private lateinit var dao: FavouriteStationDao
 
-    private val favouriteRadioStation1 =  FavouriteRadioStation("1", "name1", "url1")
-    private val favouriteRadioStation2 =  FavouriteRadioStation("2", "name2", "url2")
+    private val favouriteStation1 =  FavouriteStation("1", "name1", "url1")
+    private val favouriteStation2 =  FavouriteStation("2", "name2", "url2")
 
     @Before
     fun createDatabase() {
@@ -39,30 +39,30 @@ class FavouriteRadioStationDaoTest {
 
     @Test
     fun upsert_newFavouriteRadioStation_newEntryAdded() = runBlocking{
-        dao.upsert(favouriteRadioStation1)
-        assertEquals(favouriteRadioStation1, dao.getAll().first()[0])
+        dao.upsert(favouriteStation1)
+        assertEquals(favouriteStation1, dao.getAll().first()[0])
     }
 
     @Test
     fun upsert_updateFavouriteRadioStation_entryUpdated() = runBlocking{
-        dao.upsert(favouriteRadioStation1)
-        val updatedRadioStation = favouriteRadioStation1.copy(name = "updated name")
+        dao.upsert(favouriteStation1)
+        val updatedRadioStation = favouriteStation1.copy(name = "updated name")
         dao.upsert(updatedRadioStation)
         assertEquals(updatedRadioStation, dao.getAll().first()[0])
     }
 
     @Test
     fun getAll_returnsAllSavedFavouriteRadioStations() = runBlocking {
-        dao.upsert(favouriteRadioStation1)
-        dao.upsert(favouriteRadioStation2)
-        val favRadioStations = listOf(favouriteRadioStation1, favouriteRadioStation2)
+        dao.upsert(favouriteStation1)
+        dao.upsert(favouriteStation2)
+        val favRadioStations = listOf(favouriteStation1, favouriteStation2)
         assertEquals(favRadioStations, dao.getAll().first())
     }
 
     @Test
     fun deleteAll_deleteAllFavouriteRadioStations() = runBlocking {
-        dao.upsert(favouriteRadioStation1)
-        dao.upsert(favouriteRadioStation2)
+        dao.upsert(favouriteStation1)
+        dao.upsert(favouriteStation2)
         dao.deleteAll()
         assertEquals(0, dao.getAll().first().size)
     }
