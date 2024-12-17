@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.airsyad.radiojuicer.data.local.FavouriteStationDao
 import com.airsyad.radiojuicer.data.local.RadioJuicerDatabase
+import com.r.cohen.radiobrowserandroid.RadioBrowserApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,7 +27,18 @@ object DatabaseModules {
     }
 
     @Provides
-    fun provideFavouriteStationDao(radioJuicerDatabase: RadioJuicerDatabase): FavouriteStationDao{
+    fun provideFavouriteStationDao(radioJuicerDatabase: RadioJuicerDatabase): FavouriteStationDao {
         return radioJuicerDatabase.favouriteRadioStationDao()
     }
+
+}
+
+@Module
+@InstallIn(SingletonComponent::class)
+object RadioBrowserApiModule {
+
+    @Singleton
+    @Provides
+    fun provideRadioBrowserApi(): RadioBrowserApi = RadioBrowserApi()
+
 }
