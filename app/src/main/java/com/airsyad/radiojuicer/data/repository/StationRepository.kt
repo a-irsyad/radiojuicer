@@ -12,11 +12,12 @@ interface StationRepository {
 
     suspend fun deleteAllFavouriteStations()
 
-    suspend fun fetchCountries(): List<Country>
+    suspend fun fetchCountries(): Result<List<Country>>
 
-    suspend fun fetchStationsByCountry(countryCode: String, offset: Int, limit: Int): List<Station>
+    suspend fun fetchStationsByCountry(countryCode: String, offset: Int, limit: Int): Result<List<Station>>
 
-    suspend fun fetchStationByName(name: String, offset: Int, limit: Int): List<Station>
+    suspend fun fetchStationByName(name: String, offset: Int, limit: Int): Result<List<Station>>
 
     suspend fun registerStationClick(stationUiid: String)
+
 }
