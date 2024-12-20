@@ -17,7 +17,7 @@ interface StationRepository {
 
     suspend fun fetchStationsByCountry(countryCode: String, offset: Int, limit: Int): Flow<NetworkResult<List<Station>>>
 
-    suspend fun fetchStationByName(name: String, offset: Int, limit: Int): Flow<NetworkResult<List<Station>>>
+    suspend fun fetchStationsByName(name: String, offset: Int, limit: Int): Flow<NetworkResult<List<Station>>>
 
     suspend fun registerStationClick(stationUiid: String)
 
