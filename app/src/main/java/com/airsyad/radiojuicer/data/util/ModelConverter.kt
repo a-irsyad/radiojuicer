@@ -4,9 +4,11 @@ import com.airsyad.radiojuicer.data.Country
 import com.airsyad.radiojuicer.data.Station
 import com.airsyad.radiojuicer.data.local.FavouriteStation
 import com.r.cohen.radiobrowserandroid.models.RadioBrowserCountry
+import com.r.cohen.radiobrowserandroid.models.RadioBrowserState
+import com.r.cohen.radiobrowserandroid.models.RadioBrowserStation
 
 /**
- * Converts [Station] (internal model) to [FavouriteStation] (persistence model.
+ * Convert [Station] (internal model) to [FavouriteStation] (persistence model.
  */
 fun Station.toFavouriteStation() = FavouriteStation(
     stationUiid = stationUiid,
@@ -15,7 +17,7 @@ fun Station.toFavouriteStation() = FavouriteStation(
 )
 
 /**
- * Converts [FavouriteStation] (persistence model) to [Station] (internal model).
+ * Convert [FavouriteStation] (persistence model) to [Station] (internal model).
  */
 fun FavouriteStation.toStation() = Station(
     stationUiid = stationUiid,
@@ -24,7 +26,16 @@ fun FavouriteStation.toStation() = Station(
 )
 
 /**
- * Converts [RadioBrowserCountry] (DTO) to [Country] (internal model).
+ * Convert [RadioBrowserStation] (DTO) to [Station] (internal model)
+ */
+fun RadioBrowserStation.toStation() = Station(
+    stationUiid = stationuuid,
+    name = name,
+    logoUrl = favicon
+)
+
+/**
+ * Convert [RadioBrowserCountry] (DTO) to [Country] (internal model).
  **/
 fun RadioBrowserCountry.toCountry() = Country(
     name = name,
@@ -33,10 +44,11 @@ fun RadioBrowserCountry.toCountry() = Country(
 )
 
 /**
- * Converts [Country] (internal model) to [RadioBrowserCountry] (DTO).
+ * Convert [Country] (internal model) to [RadioBrowserCountry] (DTO).
  **/
 fun Country.toRadioBrowserCountry() = RadioBrowserCountry(
     name = name,
     iso_3166_1 = countryCode,
     stationcount = stationCount
 )
+
